@@ -3,13 +3,15 @@
  * @project Cost_Manager_REST_API
  * @description
  * Entry point of the Cost Manager REST API.
- * Initializes Express, sets up middleware, connects to MongoDB using environment variables,
- * and defines a basic test route.
+ * Initializes Express, connects to MongoDB using environment variables,
+ * sets up middleware, and defines base and cost-related routes.
  */
 
 const express = require('express');
 const connectDB = require('./config/db');
 require('dotenv').config();
+
+const costRoutes = require('./routes/costRoutes');
 
 const app = express();
 
@@ -27,5 +29,11 @@ connectDB();
 app.get('/', (req, res) => {
     res.send('Cost Manager API is running...');
 });
+
+/**
+ * Cost routes
+ * @route POST /api/add
+ */
+app.use('/api', costRoutes);
 
 module.exports = app;

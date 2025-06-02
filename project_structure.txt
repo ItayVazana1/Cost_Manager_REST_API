@@ -1,0 +1,30 @@
+📁 Cost_Manager_REST_API
+├── .env
+├── .env.example
+├── .gitignore
+├── app.js
+├── config
+│   └── db.js
+├── controllers
+│   ├── costController.js
+│   ├── reportController.js
+│   └── userController.js
+├── generate_structure.js
+├── models
+│   ├── Cost.js
+│   └── User.js
+├── package-lock.json
+├── package.json
+├── README.md
+├── routes
+│   ├── costRoutes.js
+│   ├── reportRoutes.js
+│   └── userRoutes.js
+├── server.js
+├── utils
+│   └── validate.js
+└── __tests__
+    ├── about.test.js
+    ├── add.test.js
+    ├── report.test.js
+    └── user.test.js

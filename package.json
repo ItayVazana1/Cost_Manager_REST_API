@@ -1,17 +1,11 @@
 {
   "name": "cost-manager-rest-api",
   "version": "1.0.0",
-  "dependencies": {
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0",
-    "mongodb": "^6.16.0",
-    "mongoose": "^8.15.1"
-  },
-  "description": "A basic REST API project for managing user expenses.  \r This is an academic assignment built with Node.js, Express, and MongoDB.",
+  "description": "A basic REST API project for managing user expenses.\nThis is an academic assignment built with Node.js, Express, and MongoDB.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,5 +17,15 @@
   "bugs": {
     "url": "https://github.com/ItayVazana1/Cost_Manager_REST_API/issues"
   },
-  "homepage": "https://github.com/ItayVazana1/Cost_Manager_REST_API#readme"
+  "homepage": "https://github.com/ItayVazana1/Cost_Manager_REST_API#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.15.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.1.1"
+  }
 }
