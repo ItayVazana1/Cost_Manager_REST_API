@@ -12,6 +12,7 @@ const connectDB = require('./config/db');
 require('dotenv').config();
 
 const costRoutes = require('./routes/costRoutes');
+const reportRoutes = require('./routes/reportRoutes');
 
 const app = express();
 
@@ -35,5 +36,11 @@ app.get('/', (req, res) => {
  * @route POST /api/add
  */
 app.use('/api', costRoutes);
+
+/**
+ * Report routes
+ * @route GET /api/report
+ */
+app.use('/api', reportRoutes);
 
 module.exports = app;
