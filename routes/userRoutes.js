@@ -11,7 +11,9 @@ const { getUserInfo } = require('../controllers/userController');
 /**
  * @route GET /api/users/:id
  * @function
- * @description Get user information and total cost summary
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns {void} JSON response with user info and total cost
  */
 router.get('/users/:id', getUserInfo);
 

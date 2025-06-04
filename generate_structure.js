@@ -1,3 +1,9 @@
+/**
+ * @file generate_structure.js
+ * @project Cost_Manager_REST_API
+ * @description Generates a visual tree of the current project directory and saves it to project_structure.txt
+ */
+
 const fs = require('fs');
 const path = require('path');
 
@@ -8,9 +14,11 @@ const baseDirName = path.basename(baseDir);
 /**
  * Recursively builds a visual tree structure of the directory.
  * Ignores folders like node_modules, .git, .idea
- * @param {string} dirPath - Directory path to scan
- * @param {string} prefix - Indentation prefix
- * @returns {string[]} Array of tree lines
+ *
+ * @function buildTree
+ * @param {string} dirPath - The directory path to scan
+ * @param {string} prefix - Indentation prefix for nested entries
+ * @returns {string[]} Array of tree lines representing the structure
  */
 function buildTree(dirPath, prefix = '') {
     const IGNORE = ['node_modules', '.git', '.idea'];
@@ -40,4 +48,7 @@ function buildTree(dirPath, prefix = '') {
 const treeLines = [`📁 ${baseDirName}`, ...buildTree(baseDir)];
 fs.writeFileSync(outputFile, treeLines.join('\n'), 'utf-8');
 
-console.log(`✅ File structure saved to ${outputFile}`);
+// Log success only if not in test mode
+if (process.env.NODE_ENV !== 'test') {
+    console.info(`✅ File structure saved to ${outputFile}`);
+}

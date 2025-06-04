@@ -1,2 +1,19 @@
+# 📦 Node.js dependencies
 node_modules/
+
+# 🔐 Environment variables
 .env
+
+# 🧠 IDE configs
+.idea/
+.vscode/
+
+# 🗂️ Project structure tree (output file)
+project_structure.txt
+
+# 🛠️ Local scripts (like tree generator or validators)
+generate_structure.js
+
+# 🧪 Jest coverage and cache (optional)
+coverage/
+jest-cache/

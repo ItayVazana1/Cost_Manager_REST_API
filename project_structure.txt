@@ -6,10 +6,12 @@
 ├── config
 │   └── db.js
 ├── controllers
+│   ├── aboutController.js
 │   ├── costController.js
 │   ├── reportController.js
 │   └── userController.js
 ├── generate_structure.js
+├── local_test_runner.py
 ├── models
 │   ├── Cost.js
 │   └── User.js
@@ -18,12 +20,16 @@
 ├── project_structure.txt
 ├── README.md
 ├── routes
+│   ├── aboutRoutes.js
 │   ├── costRoutes.js
 │   ├── reportRoutes.js
 │   └── userRoutes.js
+├── scripts
+│   └── resetForTesting.js
 ├── server.js
 ├── utils
 │   └── validate.js
+├── validation_log.txt
 └── __tests__
     ├── about.test.js
     ├── add.test.js

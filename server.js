@@ -6,15 +6,20 @@
  * Uses the main Express app exported from app.js.
  */
 
+require('dotenv').config(); // Load environment variables from .env
 const app = require('./app');
 
 const PORT = process.env.PORT || 3000;
 
 /**
- * Start the Express server.
+ * Starts the Express server on the given port.
+ *
  * @function
+ * @param {number} PORT - The port number to listen on
  * @returns {void}
  */
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    if (process.env.NODE_ENV !== 'test') {
+        console.info(`✅ Server is running on port ${PORT}`);
+    }
 });

@@ -1,8 +1,7 @@
 /**
  * @file controllers/costController.js
  * @project Cost_Manager_REST_API
- * @description
- * Controller to handle adding a new cost item to the database.
+ * @description Controller to handle adding a new cost item to the database.
  */
 
 const Cost = require('../models/Cost');
@@ -10,6 +9,7 @@ const { validateCostInput } = require('../utils/validate');
 
 /**
  * Adds a new cost item to the database.
+ *
  * @function
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object

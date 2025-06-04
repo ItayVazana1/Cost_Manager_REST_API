@@ -1,21 +1,29 @@
+/**
+ * @file config/db.js
+ * @project Cost_Manager_REST_API
+ * @description Connects to MongoDB using Mongoose.
+ */
+
 const mongoose = require('mongoose');
 require('dotenv').config();
 
 /**
- * @file config/db.js
- * @description Connects to MongoDB using Mongoose.
- */
-
-/**
- * Connects to MongoDB using Mongoose and logs the result.
- * @function
+ * Connects to MongoDB using Mongoose.
+ *
+ * @function connectDB
+ * @param {void}
+ * @returns {Promise<void>} Resolves when the connection is successful
  */
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URI);
-        console.log('MongoDB connected successfully');
+        if (process.env.NODE_ENV !== 'test') {
+            console.info('✅ MongoDB connected successfully');
+        }
     } catch (error) {
-        console.error('MongoDB connection error:', error.message);
+        if (process.env.NODE_ENV !== 'test') {
+            console.error('❌ MongoDB connection error:', error.message);
+        }
         process.exit(1);
     }
 };

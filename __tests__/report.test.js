@@ -8,6 +8,13 @@ const request = require('supertest');
 const app = require('../app');
 
 describe('GET /api/report', () => {
+    /**
+     * Should return a valid monthly report grouped by predefined categories.
+     *
+     * @function
+     * @param {Function} done - Jest callback (for JSDoc compliance)
+     * @returns {Promise<void>}
+     */
     it('should return a valid monthly report grouped by category', async () => {
         const response = await request(app)
             .get('/api/report')
@@ -25,6 +32,13 @@ describe('GET /api/report', () => {
         expect(costCategories.sort()).toEqual(categories.sort());
     });
 
+    /**
+     * Should return status 400 if required query parameters are missing.
+     *
+     * @function
+     * @param {Function} done - Jest callback (for JSDoc compliance)
+     * @returns {Promise<void>}
+     */
     it('should return 400 if parameters are missing', async () => {
         const response = await request(app).get('/api/report?id=123123');
         expect(response.status).toBe(400);

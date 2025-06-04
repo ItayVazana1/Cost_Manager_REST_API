@@ -25,8 +25,10 @@ app.use(express.json());
 connectDB();
 
 /**
- * Basic test route
+ * Root test route
  * @route GET /
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
  * @returns {string} Confirmation message
  */
 app.get('/', (req, res) => {
@@ -34,26 +36,34 @@ app.get('/', (req, res) => {
 });
 
 /**
- * Cost routes
  * @route POST /api/add
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON with added cost or error
  */
 app.use('/api', costRoutes);
 
 /**
- * Report routes
  * @route GET /api/report
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON with grouped monthly report
  */
 app.use('/api', reportRoutes);
 
 /**
- * User routes
  * @route GET /api/users/:id
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON with user info and total cost
  */
 app.use('/api', userRoutes);
 
 /**
- * About route
  * @route GET /api/about
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns {Object[]} JSON with team member names
  */
 app.use('/api', aboutRoutes);
 

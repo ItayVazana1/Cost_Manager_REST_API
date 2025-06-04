@@ -1,9 +1,7 @@
 /**
  * @file models/Cost.js
  * @project Cost_Manager_REST_API
- * @description
- * Mongoose schema and model definition for the 'Cost' collection.
- * Each cost item is associated with a user and includes a category, description, amount, and date.
+ * @description Mongoose schema and model definition for the 'Cost' collection.
  */
 
 const mongoose = require('mongoose');
@@ -16,7 +14,11 @@ const ALLOWED_CATEGORIES = ['food', 'health', 'housing', 'sport', 'education'];
 
 /**
  * Cost schema definition.
+ *
+ * @constant
  * @type {mongoose.Schema}
+ * @param {void}
+ * @returns {mongoose.Schema} Mongoose schema object for cost items
  */
 const costSchema = new mongoose.Schema({
     userid: {
@@ -46,7 +48,9 @@ const costSchema = new mongoose.Schema({
 
 /**
  * Mongoose model for the 'costs' collection.
+ *
  * @const
+ * @returns {mongoose.Model} Cost model
  */
 const Cost = mongoose.model('Cost', costSchema);
 

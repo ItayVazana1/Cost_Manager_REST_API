@@ -1,5 +1,6 @@
 /**
  * @file __tests__/users.test.js
+ * @project Cost_Manager_REST_API
  * @description Unit test for GET /api/users/:id endpoint
  */
 
@@ -10,6 +11,13 @@ const User = require('../models/User');
 const Cost = require('../models/Cost');
 
 describe('GET /api/users/:id', () => {
+    /**
+     * Setup test database before running tests.
+     *
+     * @function
+     * @param {Function} done - Jest callback (for JSDoc compliance)
+     * @returns {Promise<void>}
+     */
     beforeAll(async () => {
         await mongoose.connect(process.env.MONGODB_URI);
 
@@ -29,11 +37,25 @@ describe('GET /api/users/:id', () => {
         ]);
     });
 
+    /**
+     * Clean up database and close connection after tests.
+     *
+     * @function
+     * @param {Function} done - Jest callback (for JSDoc compliance)
+     * @returns {Promise<void>}
+     */
     afterAll(async () => {
         await mongoose.connection.close();
-        await mongoose.disconnect(); // Ensure proper teardown to avoid Jest warnings
+        await mongoose.disconnect();
     });
 
+    /**
+     * Should return user info including total cost.
+     *
+     * @function
+     * @param {Function} done - Jest callback (for JSDoc compliance)
+     * @returns {Promise<void>}
+     */
     it('should return user info and total cost', async () => {
         const res = await request(app).get('/api/users/123123');
 
@@ -44,6 +66,13 @@ describe('GET /api/users/:id', () => {
         expect(res.body).toHaveProperty('total', 18);
     });
 
+    /**
+     * Should return 404 if user does not exist.
+     *
+     * @function
+     * @param {Function} done - Jest callback (for JSDoc compliance)
+     * @returns {Promise<void>}
+     */
     it('should return 404 for non-existing user', async () => {
         const res = await request(app).get('/api/users/000000');
         expect(res.statusCode).toBe(404);

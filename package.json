@@ -1,17 +1,29 @@
 {
   "name": "cost-manager-rest-api",
   "version": "1.0.0",
-  "description": "A basic REST API project for managing user expenses.\nThis is an academic assignment built with Node.js, Express, and MongoDB.",
+  "description": "A basic REST API project for managing user expenses. This is an academic assignment built with Node.js, Express, and MongoDB.",
   "main": "app.js",
   "scripts": {
     "start": "node server.js",
-    "test": "jest"
+    "test": "jest",
+    "validate": "node local_test_runner.py"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ItayVazana1/Cost_Manager_REST_API.git"
   },
-  "keywords": [],
+  "keywords": [
+    "express",
+    "rest",
+    "api",
+    "nodejs",
+    "mongodb",
+    "mongoose",
+    "expenses",
+    "costs",
+    "project",
+    "student"
+  ],
   "author": "Itay Vazana, Arthur Blitsman",
   "license": "ISC",
   "bugs": {

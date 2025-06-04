@@ -1,16 +1,19 @@
 /**
  * @file models/User.js
  * @project Cost_Manager_REST_API
- * @description
- * Mongoose schema and model definition for the 'User' collection.
- * Each user has basic personal information and a unique numeric ID.
+ * @description Mongoose schema and model definition for the 'User' collection.
  */
 
 const mongoose = require('mongoose');
 
 /**
  * User schema definition.
+ * Each user has: id, first_name, last_name, and optionally birthday & marital_status.
+ *
+ * @constant
  * @type {mongoose.Schema}
+ * @param {void}
+ * @returns {mongoose.Schema} Mongoose schema for User collection
  */
 const userSchema = new mongoose.Schema({
     id: {
@@ -39,7 +42,9 @@ const userSchema = new mongoose.Schema({
 
 /**
  * Mongoose model for the 'users' collection.
+ *
  * @const
+ * @returns {mongoose.Model} User model
  */
 const User = mongoose.model('User', userSchema);
 

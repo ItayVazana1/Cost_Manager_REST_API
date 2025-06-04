@@ -12,7 +12,9 @@ const router = express.Router();
 /**
  * @route GET /api/about
  * @function
- * @description Return team members info (hardcoded)
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns {void} JSON array of team members
  */
 router.get('/about', getAboutInfo);
 

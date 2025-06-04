@@ -12,7 +12,9 @@ const router = express.Router();
 /**
  * @route POST /api/add
  * @function
- * @description Add a new cost item to the database
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns {void} JSON response with the added cost or an error
  */
 router.post('/add', addCost);
 

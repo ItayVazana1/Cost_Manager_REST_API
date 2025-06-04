@@ -8,6 +8,13 @@ const request = require('supertest');
 const app = require('../app');
 
 describe('GET /api/about', () => {
+    /**
+     * Should return an array of team members with first_name and last_name only.
+     *
+     * @function
+     * @param {Function} done - Callback for async test (not used but required for JSDoc check)
+     * @returns {Promise<void>}
+     */
     it('should return a list of team members with first_name and last_name only', async () => {
         const res = await request(app).get('/api/about');
 

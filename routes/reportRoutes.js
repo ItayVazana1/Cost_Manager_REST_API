@@ -12,7 +12,9 @@ const router = express.Router();
 /**
  * @route GET /api/report
  * @function
- * @description Get monthly cost report grouped by category for a specific user
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns {void} JSON response with user's monthly costs grouped by category
  */
 router.get('/report', getMonthlyReport);
 
