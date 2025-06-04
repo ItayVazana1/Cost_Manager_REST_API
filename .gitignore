@@ -17,3 +17,6 @@ generate_structure.js
 # 🧪 Jest coverage and cache (optional)
 coverage/
 jest-cache/
+
+# 📄 Local logs
+validation_log.txt
