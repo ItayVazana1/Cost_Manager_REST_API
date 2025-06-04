@@ -29,13 +29,11 @@ const userSchema = new mongoose.Schema({
         trim: true
     },
     birthday: {
-        type: Date,
-        required: true
+        type: Date
     },
     marital_status: {
         type: String,
-        enum: ['single', 'married', 'divorced', 'widowed'],
-        required: true
+        enum: ['single', 'married', 'divorced', 'widowed']
     }
 }, { versionKey: false });
 

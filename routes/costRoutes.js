@@ -11,7 +11,8 @@ const router = express.Router();
 
 /**
  * @route POST /api/add
- * @desc Add a new cost item
+ * @function
+ * @description Add a new cost item to the database
  */
 router.post('/add', addCost);
 

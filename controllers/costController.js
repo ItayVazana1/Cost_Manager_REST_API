@@ -6,6 +6,7 @@
  */
 
 const Cost = require('../models/Cost');
+const { validateCostInput } = require('../utils/validate');
 
 /**
  * Adds a new cost item to the database.
@@ -16,18 +17,19 @@ const Cost = require('../models/Cost');
  */
 const addCost = async (req, res) => {
     try {
-        const { userid, description, category, sum, date } = req.body;
-
-        if (!userid || !description || !category || !sum) {
-            return res.status(400).json({ error: 'Missing required fields.' });
+        const validation = validateCostInput(req.body);
+        if (!validation.valid) {
+            return res.status(400).json({ error: validation.error });
         }
+
+        const { userid, description, category, sum, date } = req.body;
 
         const newCost = new Cost({
             userid,
             description,
             category,
             sum,
-            date
+            date: date ? new Date(date) : new Date()
         });
 
         const saved = await newCost.save();

@@ -11,12 +11,12 @@ describe('GET /api/report', () => {
     it('should return a valid monthly report grouped by category', async () => {
         const response = await request(app)
             .get('/api/report')
-            .query({ id: '123123', year: 2025, month: 5 });
+            .query({ id: 123123, year: 2025, month: 6 });
 
         expect(response.status).toBe(200);
         expect(response.body).toHaveProperty('userid', 123123);
         expect(response.body).toHaveProperty('year', 2025);
-        expect(response.body).toHaveProperty('month', 5);
+        expect(response.body).toHaveProperty('month', 6);
         expect(Array.isArray(response.body.costs)).toBe(true);
 
         const categories = ['food', 'health', 'housing', 'sport', 'education'];

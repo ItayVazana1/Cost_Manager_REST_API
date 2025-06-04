@@ -1,7 +1,6 @@
 /**
  * @file __tests__/add.test.js
  * @project Cost_Manager_REST_API
- * @updated June 2, 2025
  * @description
  * Unit tests for POST /api/add endpoint using Supertest and Jest.
  */
@@ -17,7 +16,8 @@ describe('POST /api/add', () => {
                 userid: 123123,
                 description: 'test item',
                 category: 'food',
-                sum: 10
+                sum: 10,
+                date: '2025-06-15'
             });
 
         expect(response.statusCode).toBe(201);
@@ -38,6 +38,6 @@ describe('POST /api/add', () => {
             });
 
         expect(response.statusCode).toBe(400);
-        expect(response.body).toHaveProperty('error', 'Missing required fields.');
+        expect(response.body).toHaveProperty('error');
     });
 });

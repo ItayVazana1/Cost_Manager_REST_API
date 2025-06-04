@@ -11,7 +11,8 @@ const router = express.Router();
 
 /**
  * @route GET /api/report
- * @desc Get monthly cost report grouped by category
+ * @function
+ * @description Get monthly cost report grouped by category for a specific user
  */
 router.get('/report', getMonthlyReport);
 

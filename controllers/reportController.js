@@ -1,30 +1,36 @@
 /**
- * @file reportController.js
+ * @file controllers/reportController.js
+ * @project Cost_Manager_REST_API
  * @description Controller for handling monthly cost reports per user.
  */
 
 const Cost = require('../models/Cost');
 
 /**
- * @function getMonthlyReport
- * @description Returns all cost items of a specific user for a given month/year, grouped by category.
+ * Returns all cost items of a specific user for a given month/year, grouped by category.
+ *
+ * @function
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
- * @returns {JSON} Monthly report grouped by category or error
+ * @returns {Object} JSON with monthly report or error
  */
 const getMonthlyReport = async (req, res) => {
     try {
         const { id, year, month } = req.query;
 
-        if (!id || !year || !month) {
-            return res.status(400).json({ error: 'Missing id, year or month parameter' });
+        const userId = Number(id);
+        const reportYear = Number(year);
+        const reportMonth = Number(month);
+
+        if (isNaN(userId) || isNaN(reportYear) || isNaN(reportMonth)) {
+            return res.status(400).json({ error: 'id, year, and month must be numbers' });
         }
 
-        const startDate = new Date(year, month - 1, 1);
-        const endDate = new Date(year, month, 1);
+        const startDate = new Date(reportYear, reportMonth - 1, 1);
+        const endDate = new Date(reportYear, reportMonth, 1);
 
         const costs = await Cost.find({
-            userid: id,
+            userid: userId,
             date: { $gte: startDate, $lt: endDate }
         });
 
@@ -39,15 +45,15 @@ const getMonthlyReport = async (req, res) => {
                 grouped[item.category].push({
                     sum: item.sum,
                     description: item.description,
-                    day: day
+                    day
                 });
             }
         });
 
         const result = {
-            userid: Number(id),
-            year: Number(year),
-            month: Number(month),
+            userid: userId,
+            year: reportYear,
+            month: reportMonth,
             costs: categories.map(cat => ({ [cat]: grouped[cat] }))
         };
 
