@@ -13,7 +13,7 @@ require('dotenv').config();
 
 const costRoutes = require('./routes/costRoutes');
 const reportRoutes = require('./routes/reportRoutes');
-
+const userRoutes = require('./routes/userRoutes');
 const app = express();
 
 // Middleware to parse JSON
@@ -42,5 +42,11 @@ app.use('/api', costRoutes);
  * @route GET /api/report
  */
 app.use('/api', reportRoutes);
+
+/**
+ * User routes
+ * @route GET /api/users/:id
+ */
+app.use('/api', userRoutes);
 
 module.exports = app;

@@ -15,6 +15,7 @@
 │   └── User.js
 ├── package-lock.json
 ├── package.json
+├── project_structure.txt
 ├── README.md
 ├── routes
 │   ├── costRoutes.js
