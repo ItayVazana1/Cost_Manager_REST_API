@@ -67,4 +67,18 @@ app.use('/api', userRoutes);
  */
 app.use('/api', aboutRoutes);
 
+/**
+ * Global 404 handler for unknown endpoints
+ * @route ALL *
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON with error message
+ */
+app.use((req, res) => {
+    res.status(404).json({ error: 'Endpoint not found' });
+});
+
+module.exports = app;
+
+
 module.exports = app;
