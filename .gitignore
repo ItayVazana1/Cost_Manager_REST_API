@@ -13,7 +13,6 @@ project_structure.txt
 
 # 🛠️ Local scripts (like tree generator or validators)
 generate_structure.js
-local_test_runner.py
 
 # 🧪 Jest coverage and cache (optional)
 coverage/
@@ -21,3 +20,4 @@ jest-cache/
 
 # 📄 Local logs
 validation_log.txt
+test_log.txt
