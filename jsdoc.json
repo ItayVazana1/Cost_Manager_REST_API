@@ -1,0 +1,21 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "include": [
+      "controllers",
+      "models",
+      "routes",
+      "utils",
+      "app.js",
+      "server.js"
+    ],
+    "includePattern": ".js$",
+    "excludePattern": "(node_modules|__tests__|scripts|.test.js)"
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true
+  }
+}

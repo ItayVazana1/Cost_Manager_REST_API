@@ -14,8 +14,9 @@
  * @param {string} data.category - Category of the cost
  * @param {number} data.sum - Cost amount
  * @param {string|Date} [data.date] - Optional date string
- * @returns {{ valid: boolean, error?: string }} Validation result
+ * @returns {{ valid: boolean, error: (string|undefined) }} Validation result
  */
+
 const validateCostInput = (data) => {
     const { userid, description, category, sum, date } = data;
     const validCategories = ['food', 'health', 'housing', 'sport', 'education'];

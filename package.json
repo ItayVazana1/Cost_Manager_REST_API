@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "test": "jest",
-    "validate": "node local_test_runner.py"
+    "validate": "node local_test_runner.py",
+    "docs": "jsdoc -c jsdoc.json"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
   },
   "devDependencies": {
     "jest": "^29.7.0",
+    "jsdoc": "^4.0.4",
     "supertest": "^7.1.1"
   }
 }
